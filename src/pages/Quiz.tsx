@@ -21,8 +21,8 @@ export default function Quiz() {
   const [finished, setFinished] = useState(false)
   const [heartsLeft, setHeartsLeft] = useState(stats.hearts)
 
-  const { play: playCorrect } = useSound('/sounds/correct.mp3')
-  const { play: playWrong } = useSound('/sounds/wrong.mp3')
+  const { play: playCorrect } = useSound(correctSoundUrl)
+  const { play: playWrong } = useSound(wrongSoundUrl)
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>()
   
