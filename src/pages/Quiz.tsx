@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useStore } from '../store/useStore'
 import { getCategoryById, buildQuestions } from '../data/words'
 import clsx from 'clsx'
+import { useSound } from '../hooks/useSound';
 
 export default function Quiz() {
   const { categoryId } = useParams<{ categoryId: string }>()
@@ -25,16 +26,21 @@ export default function Quiz() {
   const q = questions[current]
   const progress = (current / questions.length) * 100
 
+  const { play: playCorrect } = useSound('/sounds/correct-ding.mp3');
+  const { play: playWrong } = useSound('/sounds/wrong-buzz.mp3');
+
   function handleAnswer(idx: number) {
     if (selected !== null || feedback !== null) return
     setSelected(idx)
     const isCorrect = idx === q.correctIndex
 
     if (isCorrect) {
+      playCorrect();
       setFeedback('correct')
       setScore(s => s + 1)
       markWordMastered(q.wordId)
     } else {
+      playWrong();
       setFeedback('wrong')
       loseHeart()
       setHeartsLeft(h => Math.max(0, h - 1))
