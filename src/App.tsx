@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import Home from './pages/Home'
 import Categories from './pages/Categories'
@@ -9,7 +9,7 @@ import Achievements from './pages/Achievements'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       {/* Глобальная изумрудная сфера для подсветки по центру */}
       <div className="bg-shape-emerald" />
       
@@ -23,6 +23,6 @@ export default function App() {
         <Route path="/progress" element={<Progress />} />
         <Route path="/achievements" element={<Achievements />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
