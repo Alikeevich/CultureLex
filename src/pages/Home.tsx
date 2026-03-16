@@ -9,7 +9,7 @@ export default function Home() {
   const learnedCount = stats.learnedWordIds.length
 
   return (
-    <div className="min-h-[100dvh] pt-28 pb-12 px-6 relative">
+    <div className="min-h-[100dvh] pt-28 pb-32 md:pb-12 px-6 relative">
       <div className="bg-shape-emerald" /> {/* Подсветка фона */}
       
       <div className="max-w-6xl mx-auto">
