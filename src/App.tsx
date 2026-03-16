@@ -10,7 +10,11 @@ import Achievements from './pages/Achievements'
 export default function App() {
   return (
     <BrowserRouter>
+      {/* Глобальная изумрудная сфера для подсветки по центру */}
+      <div className="bg-shape-emerald" />
+      
       <Navbar />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
