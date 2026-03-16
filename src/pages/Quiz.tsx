@@ -5,6 +5,8 @@ import { useStore } from '../store/useStore'
 import { getCategoryById, buildQuestions } from '../data/words'
 import { useSound } from '../hooks/useSound'
 import clsx from 'clsx'
+import correctSoundUrl from '../assets/sounds/correct.mp3'
+import wrongSoundUrl from '../assets/sounds/wrong.mp3'
 
 export default function Quiz() {
   const { categoryId } = useParams<{ categoryId: string }>()
@@ -19,8 +21,8 @@ export default function Quiz() {
   const [finished, setFinished] = useState(false)
   const [heartsLeft, setHeartsLeft] = useState(stats.hearts)
 
-import correctSoundUrl from '../assets/sounds/correct.mp3'
-import wrongSoundUrl from '../assets/sounds/wrong.mp3'
+  const { play: playCorrect } = useSound('/sounds/correct.mp3')
+  const { play: playWrong } = useSound('/sounds/wrong.mp3')
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>()
   
