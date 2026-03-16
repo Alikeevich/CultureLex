@@ -19,9 +19,8 @@ export default function Quiz() {
   const [finished, setFinished] = useState(false)
   const [heartsLeft, setHeartsLeft] = useState(stats.hearts)
 
-  // 🔊 ПОДКЛЮЧАЕМ ЗВУКИ (проверь, чтобы пути совпадали с твоими файлами)
-  const { play: playCorrect } = useSound('/sounds/correct.mp3')
-  const { play: playWrong } = useSound('/sounds/wrong.mp3')
+import correctSoundUrl from '../assets/sounds/correct.mp3'
+import wrongSoundUrl from '../assets/sounds/wrong.mp3'
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>()
   
